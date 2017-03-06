@@ -29,9 +29,9 @@
                     {% for permission in oauth_data.scope|scopes %}
                         <li>
                             {% if permission == "read" %}
-                            <li>Read, but not change, limited information such as your name, email address, the items in your Learning Library. (Note: does not allow access to payment information.)</li>
+                            Read, but not change, limited information such as your name, email address, the items in your Learning Library. (Note: does not allow access to payment information.)
                             {% else %}
-                            <li>Change limited information.</li>
+                            Change limited information.
                             {% endif %}
                         </li>
                     {% endfor %}
@@ -49,8 +49,8 @@
                             </select>
                         </div>
                         <span class="button-group">
-                            <input type="submit" class="btn login large danger" value="Cancel">Cancel</input>
-                            <input type="submit" class="btn login large primary" value="authorize">Authorize</input>
+                            <input type="submit" class="btn login large danger" value="Cancel" />
+                            <input type="submit" class="btn login large primary" name="authorize" value="Authorize" />
                         </span><!-- .button-group -->
                     </fieldset>
                 </form>
