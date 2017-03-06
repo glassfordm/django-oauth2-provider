@@ -54,9 +54,11 @@
                         </span><!-- .button-group -->
                     </fieldset>
                 </form>
+                {% comment %}
                 <p class="text-center">
                     <a href="/account/logout/">Log Out</a>
                 </p>
+                {% endcomment %}
             {% else %}
                 {{ error }}
                 {{ error_description }}
