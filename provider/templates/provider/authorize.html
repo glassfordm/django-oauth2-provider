@@ -25,7 +25,7 @@
 
             {% if not error %}
                 <p>{{ client.name }} would like to access your Ligonier Account with the following permissions:</p>
-                <ul>
+                <ul class="permissions">
                     {% for permission in oauth_data.scope|scopes %}
                         <li>
                             {% if permission == "read" %}
