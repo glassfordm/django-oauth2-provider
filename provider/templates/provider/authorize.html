@@ -29,7 +29,7 @@
                     {% for permission in oauth_data.scope|scopes %}
                         <li>
                             {% if permission == "read" %}
-                            Read, but not change, limited information such as your name, email address, the items in your Learning Library. <i>(Note: does not allow access to payment information.)</i>
+                            Read, but not change, limited information such as your name, email address, and the items in your Learning Library. <i>(Note: does not allow access to payment information.)</i>
                             {% else %}
                             Change limited information.
                             {% endif %}
