@@ -17,7 +17,7 @@
         <link rel="stylesheet" href="https://s3.amazonaws.com/ligonier-static-media-test/provider/css/style.css">
     </head>
     <body>
-        <div class="wrapper">
+        <div class="wrapper auth-page">
 
             <header>
                 <img src="https://s3.amazonaws.com/ligonier-static-media-test/provider/img/LM-logo@2x.png" class="centered">
@@ -25,11 +25,11 @@
 
             {% if not error %}
                 <p>{{ client.name }} would like to access your Ligonier Account with the following permissions:</p>
-                <ul>
+                <ul class="permissions">
                     {% for permission in oauth_data.scope|scopes %}
                         <li>
                             {% if permission == "read" %}
-                            Read, but not change, limited information such as your name, email address, the items in your Learning Library (note: does not allow access to payment information).
+                            Read, but not change, limited information such as your name, email address, and the items in your Learning Library. <i>(Note: does not allow access to payment information.)</i>
                             {% else %}
                             Change limited information.
                             {% endif %}
@@ -49,8 +49,8 @@
                             </select>
                         </div>
                         <span class="button-group">
-                            <input type="submit" class="btn login large danger" value="Cancel" />
-                            <input type="submit" class="btn login large primary" name="authorize" value="Authorize" />
+                            <input type="submit" class="button login large danger" value="Cancel" />
+                            <input type="submit" class="button login large primary" name="authorize" value="Authorize" />
                         </span><!-- .button-group -->
                     </fieldset>
                 </form>
