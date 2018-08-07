@@ -517,7 +517,17 @@ class AccessToken(OAuthView, Mixin):
 
         # this must be called first in case we need to purge expired tokens
         self.invalidate_refresh_token(rt)
-        self.invalidate_access_token(rt.access_token)
+        # self.invalidate_access_token(rt.access_token)
+            # Invalidating old access tokens when issuing a new refresh token 
+            # is incorrect. RFC 6749, section 1.5, states,
+            # "Refresh tokens... are used to obtain a new access token when the
+            # current access token becomes invalid or expires, or to obtain
+            # additional access tokens with identical or narrower scope..."
+            #
+            # The line invalidating the refresh token is correct, however:
+            # section 6 states that "The authorization server MAY revoke 
+            # the old refresh token after issuing a new refresh token to 
+            # the client."
 
         at = self.create_access_token(request, rt.user, rt.access_token.scope,
                 client)
